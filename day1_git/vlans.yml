@@ -1,0 +1,20 @@
+v10:
+  name: office
+  tag: 10
+v20:
+  name: phone
+  tag: 20
+v30:
+  name: reserved
+  tag: 30
+v100:
+  name: p2p_v100
+  tag: 100
+v101:
+  name: p2p_v101
+  tag: 101
+v102:
+  name: p2p_v102
+  tag: 102
+
+
