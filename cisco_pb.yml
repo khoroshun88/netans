@@ -6,5 +6,4 @@
       ios_command:
         commands:
           - sh ip int brief
-          
 
