@@ -1,0 +1,10 @@
+- name: Cisco playbook
+  hosts: cisco_routers
+  gather_facts: false
+  tasks:
+    - name: sh ip int br
+      ios_command:
+        commands:
+          - sh ip int brief
+          
+
