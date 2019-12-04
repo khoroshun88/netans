@@ -1,6 +1,6 @@
 {% for k, v in loopbacks | dictsort %}
     {% if k!=2 %}
 interface Loopback{{k}}
-    ip address {{v}}
+ip address {{v}}
     {% endif %}
 {% endfor %}
