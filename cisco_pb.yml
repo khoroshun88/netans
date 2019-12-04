@@ -6,4 +6,15 @@
       ios_command:
         commands:
           - sh ip int brief
+    - name: Node
+      debug:
+        msg: "{{inventory_hostname}} has node {{node}}"
+    - name: IOS facts
+      ios_facts:
+        gather_subset: 
+          - all
+      register: facts
+#    - name: sh facts
+#      debug:
+#        var: facts
 

@@ -1,0 +1,19 @@
+- name: Create loopbacks
+  hosts: r1
+  gather_facts: false
+  tasks:
+    - name: create loopbacks
+      loop: "{{ loopbacks | dict2items}}"
+      vars:
+        not_need_loopback:
+          - 2
+          - 3
+          - 4
+      when: item.key not in {{not_need_loopback}}
+      ios_config:
+        lines:
+          - interface Loopback{{item.key}}
+        
+
+
+          
