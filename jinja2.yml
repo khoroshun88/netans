@@ -7,3 +7,5 @@
         src: templates/interfaces.j2
         dest: output/{{inventory_hostname}}_loopbacks.txt
         lstrip_blocks: true
+      delegate_to: localhost
+      run_once: true

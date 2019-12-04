@@ -1,0 +1,9 @@
+- name: 4.3 Filter and tests
+  hosts: r1
+  gather_facts: false
+  tasks:
+    - name: sh ip int br
+      ios_command:
+        commands:
+          - sh ip int brief
+      register: br

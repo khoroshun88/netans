@@ -1,0 +1,17 @@
+- name: Generate templates ntp servers
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Generate output file ntp_lines
+      tags:
+        - never
+        - first
+      template:
+        src: templates/ntp_lines.j2
+        dest: output/{{inventory_hostname}}_ntp_lines.txt
+        lstrip_blocks: true
+    - name: Configuration ntp servers on devices
+      ios_config:
+        src: templates/ntp_lines.j2
+        
+
