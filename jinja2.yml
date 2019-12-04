@@ -1,0 +1,9 @@
+- name: Generate templates loopbacks
+  hosts: r1
+  gather_facts: false
+  tasks:
+    - name: Generate output file
+      template:
+        src: templates/interfaces.j2
+        dest: output/{{inventory_hostname}}_loopbacks.txt
+        lstrip_blocks: true

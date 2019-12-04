@@ -1,0 +1,10 @@
+interface Loopback1
+    ip address 192.168.11.1
+interface Loopback3
+    ip address 192.168.11.3
+interface Loopback4
+    ip address 192.168.11.4
+interface Loopback5
+    ip address 192.168.11.5
+interface Loopback6
+    ip address 192.168.11.6
