@@ -7,3 +7,15 @@
         commands:
           - sh ip int brief
       register: br
+    - name: Output only without unansigned
+      debug:
+        var: br.stdout_lines[0] | reject("search", "unassigned") | list
+    - name: Output only Loopbacks
+      debug:
+        var: br.stdout_lines[0] | select("match", "Loopback") | list
+      register: br_loopbacks
+    - name: Output quantity Loopbacks
+      debug:
+        var: br_loopbacks | count
+      
+      
