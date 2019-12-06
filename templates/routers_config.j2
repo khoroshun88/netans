@@ -3,7 +3,7 @@ hostname {{inventory_hostname}}
 
 {% for k, v in loopbacks | dictsort %}
 interface Loopback{{k}}
-ip address {{v}}
+ ip address {{v}}
 {% endfor %}
 
 {% for k, v in interfaces | dictsort %}
