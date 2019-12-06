@@ -1,0 +1,26 @@
+- name: Jinja ninja challenger
+  hosts: r1
+  gather_facts: false
+  tasks:
+    - name: Backup config
+      tags:
+        - never
+        - backup
+      ios_config:
+        backup: yes
+        backup_options:
+          filename: "{{inventory_hostname}}_backup.cfg"
+          dir_path: backup
+    - name: Output templates
+      tags:
+        - never
+        - template
+      template:
+        src: templates/routers_config.j2
+        dest: output/{{inventory_hostname}}_config.txt
+        lstrip_blocks: true
+    - name: Configuration devices
+      ios_config:
+        src: templates/routers_config.j2
+
+

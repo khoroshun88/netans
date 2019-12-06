@@ -9,7 +9,7 @@
           - 2
           - 3
           - 4
-      when: item.key not in {{not_need_loopback}}
+      #when: item.key not in {{not_need_loopback}}
       ios_config:
         lines:
           - interface Loopback{{item.key}}

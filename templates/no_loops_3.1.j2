@@ -1,0 +1,5 @@
+{% for k,v in loopbacks | dictsort%}
+    {% if 2<=k<=6 %}
+no interface Loopback{{k}}
+    {%endif%}
+{%endfor%}

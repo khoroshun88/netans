@@ -1,0 +1,21 @@
+- name: Jinja ninja challenger
+  hosts: r1
+  gather_facts: false
+  tasks:
+    - name: Output test templates
+      tags:
+        - never
+        - template
+      template:
+        src: templates/no_loops_3.1.j2
+        dest: output/{{inventory_hostname}}_test.txt
+        lstrip_blocks: true
+    - name: Loopbacks config
+      loop: "{{ loopbacks | dict2items}}"
+      ios_config:
+        lines:
+          - ip address {{item.value}}
+        parents: interface Loopback{{item.key}}
+    - name: NTP config
+      ios_config:
+        src: templates/ntp_lines.j2

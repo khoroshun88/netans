@@ -1,0 +1,17 @@
+
+hostname {{inventory_hostname}}
+
+{% for k, v in loopbacks | dictsort %}
+interface Loopback{{k}}
+ip address {{v}}
+{% endfor %}
+
+{% for k, v in interfaces | dictsort %}
+interface {{k}}
+ ip address {{v.ip_address}}
+ ip vrf forwarding {{v.vrf}}
+{%endfor%}
+
+{% for ntp in ntp_servers %}
+ntp server vrf mgmt {{ntp}}
+{%endfor%}

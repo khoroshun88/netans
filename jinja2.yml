@@ -9,3 +9,6 @@
         lstrip_blocks: true
       delegate_to: localhost
       run_once: true
+    - name:
+      ios_config:
+        src: templates/interfaces.j2
