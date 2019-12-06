@@ -1,0 +1,6 @@
+- name: Edit ACL
+  hosts: r1
+  gather_facts: false
+  roles:
+    - ACL
+    - add_string_acl

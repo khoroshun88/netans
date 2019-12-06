@@ -1,0 +1,24 @@
+- name: Use handlers
+  hosts: cisco_routers
+  gather_facts: false
+  tasks:
+    - name: Output templates
+#      tags:
+#        - never
+#        - template
+      template:
+        src: templates/routers_config.j2
+        dest: output/{{inventory_hostname}}_config.txt
+        lstrip_blocks: true
+    - name: Configuration devices
+      ios_config:
+        src: templates/routers_config.j2
+      notify:
+        - save configuration
+  handlers:
+    - name: save configuration
+      ios_config:
+        lines:
+          - copy running-config startup-config
+
+

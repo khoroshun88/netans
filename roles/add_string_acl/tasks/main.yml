@@ -1,0 +1,10 @@
+- name: add strings to acl
+  ios_config:
+    lines:
+      - permit tcp 10.10.11.0 0.0.0.255 any eq www
+      - permit ip 1.1.1.1 2.2.2.2 any
+      - permit tcp 10.10.11.0 0.0.0.255 any eq 22
+      - permit icmp any any
+    parents: ip access-list extended ACL
+    before: no ip access-list extended ACL
+    match: exact

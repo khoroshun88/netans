@@ -1,0 +1,4 @@
+- name: PB_r1
+  import_playbook: ansible_3.2.1.yml
+- name: PB_r2
+  import_playbook: ansible_3.2.2.yml

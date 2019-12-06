@@ -1,0 +1,12 @@
+- name: Add ACL
+  hosts: r1
+  gather_facts: false
+  tasks:
+    - name: ios facts router
+      ios_facts:
+        gather_subset:
+          - min
+      register: facts_router
+    - name: output result
+      debug:
+        var: facts_router
